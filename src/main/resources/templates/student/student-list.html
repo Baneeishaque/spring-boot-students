@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:insert="~{include/header :: header}"></div>
+<div><a th:href="@{/students/add}">Add a student</a></div>
+<table border="1">
+    <thead>
+        <th>Name</th>
+        <th>branch</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+        <tr th:each="stu:${students}">
+            <td th:text="${stu.name}"></td>
+            <td th:text="${stu.branch}"></td>
+            <td th:text="${stu.email + 'xxxx'}"></td>
+            <td><a th:href="@{/students/edit(id=${stu.id})}">Edit</a></td>
+            <td><a th:href="@{/students/delete(id=${stu.id})}">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+<div th:insert="~{include/footer :: footer}"></div>
+</body>
+</html>

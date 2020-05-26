@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:insert="~{include/header :: header}"></div>
+<form action="/students/save" method="post" th:object="${student}">
+     <input type="hidden" name="id" th:value="*{id}"> <br/>
+    Name: <input type="text" name="name" th:value="*{name}"> <br/>
+    branch: <input type="text" name="branch" th:value="*{branch}"> <br/>
+    percentage: <input type="number" name="percentage" th:value="*{percentage}"> <br/>
+    phone: <input type="number" name="phone" th:value="*{phone}"> <br/>
+    email: <input type="text" name="email" th:value="*{email}"> <br/>
+    <input type="submit" VALUE="Submit">
+</form>
+<div th:insert="~{include/footer :: footer}"></div>
+</body>
+</html>
